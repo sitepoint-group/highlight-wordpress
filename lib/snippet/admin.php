@@ -59,7 +59,7 @@ class Snippet_Admin{
 		if (!get_option('snippet_account_key') && $base !='snippet-settings' && current_user_can('manage_options')) { ?>
 			<div id="message" class="updated"><p><strong>Thanks for installing Snippet Comments.</strong> You need to <a href="<?PHP echo admin_url('admin.php?page=snippet-settings') ?>">set your account key</a> to continue using this plugin.</p></div>
 		<?php }
-		if($_GET['settings-updated'] && get_option('snippet_account_key')){ ?>
+		if(isset($_GET['settings-updated']) && get_option('snippet_account_key')){ ?>
 		<div id="message" class="updated fade"><p><strong>Great! Snippet Comments is now ready for use.</strong></p></div>
 		<?php }
 	}
