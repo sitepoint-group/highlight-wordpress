@@ -13,28 +13,28 @@ class Snippet {
 
 	protected function register_assets(){
 		wp_register_script( 'snippet-fancybox',
-		   	SNIPPET_ASSET_URL . '/javascripts/jquery.fancybox.js' );
+		   	SNIPPET_ASSET_URL . '/javascripts/jquery.fancybox.js', array(), false, true );
 
 		wp_register_script( 'snippet-messaging',
-		   	SNIPPET_CLIENT_HOST . '/assets/highlight_messaging.js' );
+		   	SNIPPET_CLIENT_HOST . '/assets/highlight_messaging.js', array(), false, true );
 
 		wp_register_script( 'snippet-admin',
-		   	SNIPPET_ASSET_URL . '/javascripts/admin.js' );
+		   	SNIPPET_ASSET_URL . '/javascripts/admin.js', array(), false, true );
 
 		wp_register_script( 'snippet-moderation',
-		   	SNIPPET_ASSET_URL . '/javascripts/moderation.js' );
+		   	SNIPPET_ASSET_URL . '/javascripts/moderation.js', array(), false, true );
 
 		wp_register_script( 'snippet-moderation-widget',
-		   	SNIPPET_CLIENT_HOST . '/assets/highlight_moderation.js' );
+		   	SNIPPET_CLIENT_HOST . '/assets/highlight_moderation.js', array(), false, true );
 
 		wp_register_script( 'snippet-user-management',
-		   	SNIPPET_ASSET_URL . '/javascripts/user_management.js' );
+		   	SNIPPET_ASSET_URL . '/javascripts/user_management.js', array(), false, true );
 
 		wp_register_script( 'snippet-user-management-widget',
-		   	SNIPPET_CLIENT_HOST . '/assets/highlight_user_management.js' );
+		   	SNIPPET_CLIENT_HOST . '/assets/highlight_user_management.js', array(), false, true );
 
 		wp_register_script( 'snippet-client',
-		   	SNIPPET_CLIENT_HOST . '/assets/highlight.js' );
+		   	SNIPPET_CLIENT_HOST . '/assets/highlight.js', array(), false, true );
 
 		wp_register_style( 'snippet-fancybox',
 		   	SNIPPET_ASSET_URL . '/stylesheets/fancybox.css' );
