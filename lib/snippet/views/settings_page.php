@@ -50,6 +50,11 @@ class Snippet_Views_SettingsPage{
 						<input type="text" name="snippet_start_date" value="<?php echo get_option('snippet_start_date'); ?>" />
 						<p class="description">Want to only use snippet comments from a certain date? Enter it here and only posts after that date will use snippets. (Format: dd/mm/yy hh:mm:ss)</p>
 					</td></tr>
+					<tr><th scope="row">Availability length</th>
+					<td>
+						<input type="text" name="snippet_active_period" value="<?php echo get_option('snippet_active_period'); ?>" />
+						<p class="description">How many days after a post is published should comments be active for? Comments are read only after this period. Leave empty for always active.</p>
+					</td></tr>
 				</table>
 			<?php submit_button(); ?>
 			</form>

@@ -53,6 +53,7 @@ class Snippet_Admin{
 		register_setting('snippet-options','snippet_post_content_class');
 		register_setting('snippet-options','snippet_post_title_class');
 		register_setting('snippet-options','snippet_start_date');
+		register_setting('snippet-options','snippet_active_period');
 	}
 
 	public function notices(){
