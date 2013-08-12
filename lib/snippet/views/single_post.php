@@ -2,7 +2,8 @@
 
 class Snippet_Views_SinglePost{
 	public function init(){
-		if( is_singular() ){
+		global $wp_query;
+		if( is_single() && $wp_query->get_queried_object()->post_type == 'post' ){
 			wp_enqueue_script( 'snippet-client' );
 			wp_enqueue_style( 'snippet-client' );
 			add_filter( 'wp_head', Array($this, 'inject_account_key') );
