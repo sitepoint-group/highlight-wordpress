@@ -1,4 +1,10 @@
 <?php
+// Commenting rules
+// Body comments:
+//  Show if passed the start date
+// End Comments:
+//  Show if no comments have been added
+//  Close if comments are closed
 
 class Snippet_Views_SinglePost{
 	public function init(){
@@ -58,6 +64,23 @@ class Snippet_Views_SinglePost{
 		return true;
 	}
 
+	// Returns true if wordpress comments are active
+	public function wordpress_comments_active(){
+		return $this->post()->comment_status != "closed";
+	}
+
+	public function has_wordpress_comments() {
+		return intval($this->post()->comment_count) > 0;
+	}
+
+	public function post(){
+		if(isset($this->_post)){
+			return $this->_post;
+		}
+		$this->_post = get_post();
+		return $this->_post;
+	}
+
 	public function inject_account_key(){
 		if( get_option('account_key') ){ ?>
 			<meta title="snippet-account-key" value="<?php echo get_option('snippet_account_key') ?>" />
@@ -66,7 +89,7 @@ class Snippet_Views_SinglePost{
 
 	public function snippet_setup_script(){ ?>
 		<script type="text/javascript">
-		var snippet = new Highlight("<?php echo get_option('snippet_account_key') ?>", "<?php echo $this->post_id() ?>", { contentSelector: ".<?php echo get_option('snippet_post_content_class', SNIPPET_CONTENT_CLASS_DEFAULT) ?>", titleSelector: ".<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT) ?>", readOnly: <?php echo $this->writable_for_post() ? 'false' : 'true'?>});
+		var snippet = new Highlight("<?php echo get_option('snippet_account_key') ?>", "<?php echo $this->post_id() ?>", { contentSelector: ".<?php echo get_option('snippet_post_content_class', SNIPPET_CONTENT_CLASS_DEFAULT) ?>", titleSelector: ".<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT) ?>", readOnly: <?php echo $this->writable_for_post() ? 'false' : 'true'?>, endOfArticleComments: <?php echo $this->has_wordpress_comments() ? 'false' : 'true' ?>});
 		snippet.start();
 		</script>
 	<?php }
