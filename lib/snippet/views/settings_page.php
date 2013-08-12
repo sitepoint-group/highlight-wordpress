@@ -28,8 +28,8 @@ class Snippet_Views_SettingsPage{
 					</td>
 					</tr>
 				</table>
-				<h3>Advanced Settings</h3>
-				<table class="form-table">
+				<h3>Advanced Settings (<a href="#" class="hl-toggle">show</a>)</h3>
+				<table class="form-table advanced-settings">
 					<tr><th scope="row">Post ID Format</th>
 					<td>
 						<input type="text" name="snippet_post_id_format" value="<?php echo get_option('snippet_post_id_format', SNIPPET_POST_ID_DEFAULT); ?>" />

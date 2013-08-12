@@ -10,11 +10,22 @@
       };
       this.bindMessaging();
 	  this.setupForm();
+	  this.bindSettings();
     }
 
     SnippetAdmin.prototype.bindMessaging = function() {
 	  Highlight.Message.receive(this.didSelectAccount, '*');
     };
+
+	SnippetAdmin.prototype.bindSettings = function() {
+		var $table = $('.advanced-settings'), link = $('.hl-toggle');
+		$table.toggle();
+		link.click(function(e){
+			e.preventDefault();
+			$table.toggle();
+			link.text($table.is(':visible') ? 'hide' : 'show');
+		});
+	};
 
 	SnippetAdmin.prototype.setupForm = function(){
 		var _this = this;
