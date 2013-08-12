@@ -43,6 +43,10 @@ class Snippet_Views_SinglePost{
 	}
 
 	public function writable_for_post(){
+		// Wordpress comments are off, so disabled comments
+		if(!$this->wordpress_comments_active()){
+			return false;
+		}
 		// Can't get publish date, turn them on
 		$publish_time = strtotime(get_the_date());
 		if(!$publish_time){
