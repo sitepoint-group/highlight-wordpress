@@ -27,6 +27,11 @@ class Snippet_Views_SettingsPage{
 						<?php } ?>
 					</td>
 					</tr>
+					<tr><th scope="row">Twitter user</th>
+					<td>
+						<input type="text" name="snippet_twitter_username" value="<?php echo get_option('snippet_twitter_username'); ?>" />
+						<p class="description">Mention this twitter username when sharing content. Leave empty for no mention. Do not enter the '@' symbol.</p>
+					</td></tr>
 				</table>
 				<h3>Advanced Settings (<a href="#" class="hl-toggle">show</a>)</h3>
 				<table class="form-table advanced-settings">
