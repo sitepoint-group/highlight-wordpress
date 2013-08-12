@@ -3,10 +3,10 @@
 class Snippet_Views_SinglePost{
 	public function init(){
 		if( is_singular() ){
-			add_filter( 'wp_head', Array($this, 'inject_account_key') );
-			add_filter( 'wp_footer', Array($this, 'snippet_setup_script') );
 			wp_enqueue_script( 'snippet-client' );
 			wp_enqueue_style( 'snippet-client' );
+			add_filter( 'wp_head', Array($this, 'inject_account_key') );
+			add_filter( 'wp_footer', Array($this, 'snippet_setup_script'), 30 );
 		}
 	}
 
