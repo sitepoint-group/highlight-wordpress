@@ -34,17 +34,22 @@ class Snippet_Views_SettingsPage{
 					<td>
 						<input type="text" name="snippet_post_id_format" value="<?php echo get_option('snippet_post_id_format', SNIPPET_POST_ID_DEFAULT); ?>" />
 						<p class="description">If your theme differs from the standard format, please update this value. '{id}' will be replaced with the posts ID. The default is "<?PHP echo SNIPPET_POST_ID_DEFAULT ?>".</p>
-					</td>
+					</td></tr>
 					<tr><th scope="row">Post content class</th>
 					<td>
 						<input type="text" name="snippet_post_content_class" value="<?php echo get_option('snippet_post_content_class', SNIPPET_CONTENT_CLASS_DEFAULT); ?>" />
 						<p class="description">If your theme differs from the standard format, please update this value. The default is "<?PHP echo SNIPPET_CONTENT_CLASS_DEFAULT ?>".</p>
-					</td>
+					</td></tr>
 					<tr><th scope="row">Post title class</th>
 					<td>
 						<input type="text" name="snippet_post_title_class" value="<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT); ?>" />
 						<p class="description">If your theme differs from the standard format, please update this value. The default is "<?PHP echo SNIPPET_TITLE_CLASS_DEFAULT ?>".</p>
-					</td>
+					</td></tr>
+					<tr><th scope="row">Comments start date</th>
+					<td>
+						<input type="text" name="snippet_start_date" value="<?php echo get_option('snippet_start_date'); ?>" />
+						<p class="description">Want to only use snippet comments from a certain date? Enter it here and only posts after that date will use snippets. (Format: dd/mm/yy hh:mm:ss)</p>
+					</td></tr>
 				</table>
 			<?php submit_button(); ?>
 			</form>

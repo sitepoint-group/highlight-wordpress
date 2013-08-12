@@ -2,11 +2,27 @@
 
 class Snippet_Views_SinglePost{
 	public function init(){
+		if( !$this->active_for_post() ){
+			return;
+		}
 		if( is_singular() ){
 			wp_enqueue_script( 'snippet-client' );
 			wp_enqueue_style( 'snippet-client' );
 			add_filter( 'wp_head', Array($this, 'inject_account_key') );
 			add_filter( 'wp_footer', Array($this, 'snippet_setup_script'), 30 );
+		}
+	}
+
+	public function active_for_post(){
+		$start_time = strtotime(get_option('snippet_start_date'));
+		if( !$start_time ){
+			// Start date option is not valid, display
+			return true;
+		}
+		if( $start_time < strtotime(get_the_date())){
+			return true;
+		}else{
+			return false;
 		}
 	}
 

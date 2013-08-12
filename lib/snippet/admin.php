@@ -52,6 +52,7 @@ class Snippet_Admin{
 		register_setting('snippet-options','snippet_post_id_format');
 		register_setting('snippet-options','snippet_post_content_class');
 		register_setting('snippet-options','snippet_post_title_class');
+		register_setting('snippet-options','snippet_start_date');
 	}
 
 	public function notices(){
@@ -59,9 +60,24 @@ class Snippet_Admin{
 		if (!get_option('snippet_account_key') && $base !='snippet-settings' && current_user_can('manage_options')) { ?>
 			<div id="message" class="updated"><p><strong>Thanks for installing Snippet Comments.</strong> You need to <a href="<?PHP echo admin_url('admin.php?page=snippet-settings') ?>">set your account key</a> to continue using this plugin.</p></div>
 		<?php }
-		if(isset($_GET['settings-updated']) && get_option('snippet_account_key')){ ?>
+		if(isset($_GET['settings-updated']) && get_option('snippet_account_key')){
+			$invalid = $this->invalid_settings();
+			if(count($invalid) > 0){ ?>
+				<div id="message" class="updated fade"><p><strong>Invalid settings!  <?PHP echo join($invalid, ". ")?></strong></p></div>
+<?php
+			}else{
+		?>
 		<div id="message" class="updated fade"><p><strong>Great! Snippet Comments is now ready for use.</strong></p></div>
-		<?php }
+		<?php }}
+	}
+
+	public function invalid_settings(){
+		$invalid = array();
+		$date = get_option('snippet_start_date');
+		if($date && $date != "" && !strtotime($date)){
+			$invalid[] = "Start date is not valid";
+		}
+		return $invalid;
 	}
 
 	public function settings_page(){
