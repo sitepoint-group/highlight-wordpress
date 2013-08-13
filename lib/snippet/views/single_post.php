@@ -98,7 +98,7 @@ class Snippet_Views_SinglePost{
  	titleSelector: ".<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT) ?>",
  	readOnly: <?php echo $this->writable_for_post() ? 'false' : 'true'?>,
 	twitterUsername: <?php $u = get_option('snippet_twitter_username'); echo $u ? "'" . $u . "'": 'false' ?>,
-	articleEndSelector: <?php echo get_option('snippet_comment_class', SNIPPET_COMMENT_CLASS_DEFAULT) ?>,
+	articleEndSelector: ".<?php echo get_option('snippet_comment_class', SNIPPET_COMMENT_CLASS_DEFAULT) ?>",
  	endOfArticleComments: <?php echo $this->has_wordpress_comments() ? 'false' : 'true' ?>});
 		snippet.start();
 		</script>
