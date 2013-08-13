@@ -40,7 +40,7 @@ class Snippet {
 		   	SNIPPET_ASSET_URL . '/stylesheets/fancybox.css' );
 
 		wp_register_style( 'snippet-client',
-		   	SNIPPET_CLIENT_HOST . '/assets/highlight.css' );
+		   	SNIPPET_CLIENT_HOST . '/assets/highlight.css', array(), null );
 	}
 }
 
