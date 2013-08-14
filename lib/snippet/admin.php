@@ -51,6 +51,7 @@ class Snippet_Admin{
 		register_setting('snippet-options','snippet_account_key');
 		register_setting('snippet-options','snippet_post_id_format');
 		register_setting('snippet-options','snippet_post_content_class');
+		register_setting('snippet-options','snippet_comment_class');
 		register_setting('snippet-options','snippet_post_title_class');
 		register_setting('snippet-options','snippet_start_date');
 		register_setting('snippet-options','snippet_active_period');

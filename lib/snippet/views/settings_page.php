@@ -50,6 +50,11 @@ class Snippet_Views_SettingsPage{
 						<input type="text" name="snippet_post_title_class" value="<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT); ?>" />
 						<p class="description">If your theme differs from the standard format, please update this value. The default is "<?PHP echo SNIPPET_TITLE_CLASS_DEFAULT ?>".</p>
 					</td></tr>
+					<tr><th scope="row">Comments class</th>
+					<td>
+						<input type="text" name="snippet_comment_class" value="<?php echo get_option('snippet_comment_class', SNIPPET_COMMENT_CLASS_DEFAULT); ?>" />
+						<p class="description">If your theme differs from the standard format, please update this value. The default is "<?PHP echo SNIPPET_COMMENT_CLASS_DEFAULT ?>".</p>
+					</td></tr>
 					<tr><th scope="row">Comments start date</th>
 					<td>
 						<input type="text" name="snippet_start_date" value="<?php echo get_option('snippet_start_date'); ?>" />
