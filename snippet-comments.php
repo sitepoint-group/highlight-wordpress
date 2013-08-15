@@ -30,6 +30,7 @@ require_once SNIPPET_LIB_PATH . 'snippet/views/settings_page.php';
 require_once SNIPPET_LIB_PATH . 'snippet/views/moderation_page.php';
 require_once SNIPPET_LIB_PATH . 'snippet/views/users_page.php';
 require_once SNIPPET_LIB_PATH . 'snippet/views/single_post.php';
+require_once SNIPPET_LIB_PATH . 'snippet/views/subscription_meta_box.php';
 
 // Bootstrap.
 $snippet = new Snippet();
