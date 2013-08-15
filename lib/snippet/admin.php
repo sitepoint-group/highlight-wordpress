@@ -5,6 +5,7 @@ class Snippet_Admin{
 		add_action( 'admin_menu', Array($this, 'add_menu') );
 		add_action( 'admin_init', Array($this, 'register_settings') );
 		add_action( 'admin_notices', Array($this, 'notices') );
+		add_action( 'add_meta_boxes', Array($this, 'in_post_subscription') );
 	}
 
 	public function add_menu(){
@@ -45,6 +46,17 @@ class Snippet_Admin{
 			'snippet-settings',
 			Array($this, 'settings_page')
 		);
+	}
+
+	public function in_post_subscription(){
+		add_meta_box(
+            'snippet_subscription_section',
+            "Snippet Notifications",
+            array($this, 'subscription_meta_box'),
+			'post',
+			'side',
+			'high'
+        );
 	}
 
 	public function register_settings(){
@@ -93,6 +105,10 @@ class Snippet_Admin{
 	}
 	public function users_page(){
 		$view = new Snippet_Views_UsersPage();
+		$view->render();
+	}
+	public function subscription_meta_box(){
+		$view = new Snippet_Views_SubscriptionMetaBox();
 		$view->render();
 	}
 }
