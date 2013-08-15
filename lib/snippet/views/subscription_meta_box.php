@@ -5,7 +5,7 @@ class Snippet_Views_SubscriptionMetaBox extends Snippet_Views_SinglePost{
 		wp_enqueue_script( 'snippet-client' );
 		wp_enqueue_style( 'snippet-client' );
 		echo "<div id='hl-notifications-container'></div>";
-		if(in_array($this->post()->post_status, array('draft', 'published', 'future', 'pending'))){
+		if(in_array($this->post()->post_status, array('draft', 'publish', 'future', 'pending'))){
 			add_filter( 'admin_print_footer_scripts', Array($this, 'subscription_script') );
 		}else{
 			add_filter( 'admin_print_footer_scripts', Array($this, 'message_script') );
