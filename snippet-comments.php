@@ -17,9 +17,9 @@ define( 'SNIPPET_API_HOST', 'https://snippet-comments.herokuapp.com' );
 define( 'SNIPPET_CLIENT_HOST', SNIPPET_API_HOST );
 
 // Defaults: Do not touch.
-define( 'SNIPPET_CONTENT_CLASS_DEFAULT', 'entry-content' );
-define( 'SNIPPET_COMMENT_CLASS_DEFAULT', 'comments-area' );
-define( 'SNIPPET_TITLE_CLASS_DEFAULT', 'entry-title' );
+define( 'SNIPPET_CONTENT_CLASS_DEFAULT', '.entry-content' );
+define( 'SNIPPET_COMMENT_CLASS_DEFAULT', '.comments-area' );
+define( 'SNIPPET_TITLE_CLASS_DEFAULT', '.entry-title' );
 define( 'SNIPPET_POST_ID_DEFAULT', 'post-{id}' );
 
 // Get our shit together.

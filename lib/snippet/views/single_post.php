@@ -94,11 +94,11 @@ class Snippet_Views_SinglePost{
 	public function snippet_setup_script(){ ?>
 		<script type="text/javascript">
 		var snippet = new Highlight("<?php echo get_option('snippet_account_key') ?>", "<?php echo $this->post_id() ?>", {
-	 contentSelector: ".<?php echo get_option('snippet_post_content_class', SNIPPET_CONTENT_CLASS_DEFAULT) ?>",
- 	titleSelector: ".<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT) ?>",
+	 contentSelector: "<?php echo get_option('snippet_post_content_class', SNIPPET_CONTENT_CLASS_DEFAULT) ?>",
+ 	titleSelector: "<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT) ?>",
  	readOnly: <?php echo $this->writable_for_post() ? 'false' : 'true'?>,
 	twitterUsername: <?php $u = get_option('snippet_twitter_username'); echo $u ? "'" . $u . "'": 'false' ?>,
-	articleEndSelector: ".<?php echo get_option('snippet_comment_class', SNIPPET_COMMENT_CLASS_DEFAULT) ?>",
+	articleEndSelector: "<?php echo get_option('snippet_comment_class', SNIPPET_COMMENT_CLASS_DEFAULT) ?>",
  	endOfArticleComments: <?php echo $this->has_wordpress_comments() ? 'false' : 'true' ?>});
 		snippet.start();
 		</script>
