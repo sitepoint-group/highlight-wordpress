@@ -16,6 +16,7 @@ class Snippet_Views_SinglePost{
 			wp_enqueue_style( 'snippet-client' );
 			add_filter( 'wp_head', Array($this, 'inject_account_key') );
 			add_filter( 'wp_footer', Array($this, 'snippet_setup_script'), 30 );
+			add_filter( 'comments_open', array($this, 'close_comments'), 10, 2 );
 		}
 	}
 
@@ -108,5 +109,19 @@ class Snippet_Views_SinglePost{
 		return str_replace(
 			"{id}", get_the_ID(), get_option('post_id_format', SNIPPET_POST_ID_DEFAULT)
 		);
+	}
+
+	public function close_comments($open, $post_id){
+		// Already closed? Let's go with that
+		if (!$open )
+			return $open;
+
+		// If it's this post, open depends on whether we have comments
+		if( $post_id == $this->post()->id && $this->active_for_post()){
+			return $this->has_wordpress_comments();
+		}
+
+		// Fallback
+		return $open;
 	}
 }
