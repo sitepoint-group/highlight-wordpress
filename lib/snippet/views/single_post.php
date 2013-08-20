@@ -123,7 +123,7 @@ class Snippet_Views_SinglePost{
 			return $open;
 
 		// If it's this post, open depends on whether we have comments
-		if( $post_id == $this->post()->id && $this->active_for_post()){
+		if( $this->active_for_post()){
 			return $this->has_wordpress_comments();
 		}
 
