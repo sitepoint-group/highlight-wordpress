@@ -94,6 +94,12 @@ class Snippet_Views_SinglePost{
 
 	public function snippet_setup_script(){ ?>
 		<script type="text/javascript">
+		<?php if(!$this->has_wordpress_comments()): ?>
+		// Remove wordpress comments
+		jQuery(function(){
+			jQuery('<?php echo get_option('snippet_comment_class', SNIPPET_COMMENT_CLASS_DEFAULT) ?>').html('');
+		})
+		<?php endif; ?>
 		var snippet = new Highlight("<?php echo get_option('snippet_account_key') ?>", "<?php echo $this->post_id() ?>", {
 	 contentSelector: "<?php echo get_option('snippet_post_content_class', SNIPPET_CONTENT_CLASS_DEFAULT) ?>",
  	titleSelector: "<?php echo get_option('snippet_post_title_class', SNIPPET_TITLE_CLASS_DEFAULT) ?>",
