@@ -11,7 +11,7 @@ class Snippet_Views_SinglePost{
 		if( !$this->active_for_post() ){
 			return;
 		}
-		if( is_singular() && $this->post()->post_type === 'post' ){
+		if( is_singular() && ($this->post()->post_type === 'post' || $this->post()->post_type === 'sp_solution') ){
 			wp_enqueue_script( 'snippet-client' );
 			wp_enqueue_style( 'snippet-client' );
 			add_filter( 'wp_head', Array($this, 'inject_account_key') );
